@@ -11,6 +11,7 @@ Steps:
 3) take the value of the nth index
 */
 
+// iterative solution
 function getNthFib(n) {
   let arr = [0, 1];
   for (let i = 2; i < n; i++) {
@@ -19,4 +20,16 @@ function getNthFib(n) {
   return arr[n - 1];
 }
 
-getNthFib(8);
+// recursive solution
+
+// function getNthFib(n) {
+//   if (n === 1) {
+//     return 0;
+//   } else if (n === 2) {
+//     return 1;
+//   } else {
+//     return getNthFib(n - 1) + getNthFib(n - 2);
+//   }
+// }
+
+console.log(getNthFib(8));
