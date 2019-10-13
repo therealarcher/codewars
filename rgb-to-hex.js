@@ -11,6 +11,7 @@ rgb(148, 0, 211) // returns 9400D3
 each 2 digits of hex representation represent each color.  (first x 16 + second x 1)
 */
 
+// to account for values less than 0 and/or more than 255
 function rgb(r, g, b) {
   let adjustedArr = [r, g, b];
   for (val in adjustedArr) {
@@ -21,6 +22,7 @@ function rgb(r, g, b) {
     }
   }
 
+  // to create the hex values
   arr = [];
   for (val of adjustedArr) {
     const a = Math.floor(val / 16);
@@ -28,6 +30,7 @@ function rgb(r, g, b) {
     arr.push(a, b);
   }
 
+  // joining the values and converting values greater than 9 into alpha
   const alpha = { 10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F" };
   for (i in arr) {
     if (arr[i] < 0) {
@@ -37,7 +40,20 @@ function rgb(r, g, b) {
     }
   }
   result = arr.join("");
+  // console.log(result);
   return result;
 }
 
-rgb(300, 255, 255);
+// a simpler and more clever solution I found online.
+// I didn't know of the "toString(16) feature when finding my own solution."
+
+// function rgb(r, g, b) {
+//   function toHex(a) {
+//     if (a <= 0) return "00";
+//     else if (a >= 255) return "FF";
+//     else return a.toString(16).toUpperCase();
+//   }
+//   return toHex(r) + toHex(g) + toHex(b);
+// }
+
+rgb(148, 0, 211);
