@@ -22,7 +22,6 @@ Output:
 const chooseStations = stations => {
   let suitableVenues = [];
   for (let station of stations) {
-    console.log(station);
     if (
       station[1] >= 20 &&
       (station[2] === "school" || station[2] === "community centre")
@@ -30,7 +29,6 @@ const chooseStations = stations => {
       suitableVenues.push(station[0]);
     }
   }
-  // console.log(suitableVenues)
   return suitableVenues;
 };
 
